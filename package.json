@@ -1,0 +1,8 @@
+{
+  "name": "web_vocabulary",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
