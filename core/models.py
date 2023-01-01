@@ -20,8 +20,8 @@ class Article(models.Model):
 
 class Media(models.Model):
     name = models.CharField('Название', max_length=255)
-    article = models.ForeignKey('core.Article', verbose_name='Медиа', on_delete=models.CASCADE)
-    file = models.FileField('Файл', blank=True, null=True, upload_to='Media')
+    article = models.ForeignKey('core.Article', verbose_name='Статья', on_delete=models.CASCADE, related_name='media')
+    file = models.FileField('Файл', blank=True, null=True, upload_to='media')
 
     class Meta:
         verbose_name = 'Медиа'

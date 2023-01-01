@@ -1,3 +1,20 @@
 from django.contrib import admin
+from core import models
 
-# Register your models here.
+
+@admin.register(models.Article)
+class Article(admin.ModelAdmin):
+    list_display = ('name', )
+    search_fields = ('name', 'tag')
+
+
+@admin.register(models.Tag)
+class Article(admin.ModelAdmin):
+    list_display = ('name', )
+    search_fields = ('name', )
+
+
+@admin.register(models.Media)
+class Article(admin.ModelAdmin):
+    list_display = ('name', )
+    search_fields = ('name', )
