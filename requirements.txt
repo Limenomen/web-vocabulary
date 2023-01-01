@@ -1,0 +1,9 @@
+Django==4.1.4
+django-bootstrap4==22.3
+django-filter==22.1
+psycopg2-binary==2.9.5
+
+ipython==8.7.0
+
+Pillow==9.3.0
+requests==2.28.1
