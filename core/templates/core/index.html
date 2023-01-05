@@ -1,9 +1,9 @@
 {% extends 'core/base.html' %}
 {% block content %}
     <div class="d-flex align-items-center justify-content-center" style="height:10rem">
-        <form class="d-flex">
-            <input class="form-control me-3" style="width: 40rem" type="search" placeholder="Введите нужный термин"
-                   aria-label="Search">
+        <form class="d-flex" method="get" action="{% url 'core:article-list' %}">
+            <input class="form-control me-3" style="width: 40rem" type="text" name="name"
+                   placeholder="Введите нужный термин" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Поиск</button>
         </form>
     </div>
