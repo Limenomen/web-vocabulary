@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load bootstrap5 %}
 
-</body>
-</html>
+<div class="d-flex flex-column float-lg-start p-3 bg-light" style="width: 280px; height: 100%">
+    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" href="/">
+        <svg class="bi me-2" height="32" width="40">
+            <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4">Поиск</span>
+    </a>
+    <hr>
+    <form class="form-inline my-2 my-lg-0" method="get">
+        {% bootstrap_form form %}
+        {% buttons %}
+        <button class="btn btn-outline-primary" type="submit">поиск</button>
+        {% endbuttons %}
+    </form>
+
+    <hr>
+</div>
