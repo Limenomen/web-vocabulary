@@ -1,0 +1,21 @@
+server {
+    listen 80;
+    server_name default;
+
+    access_log  /var/log/www/web-vocabulary/access.log;
+    error_log   /var/log/www/web-vocabulary/error.log;
+
+    location /node_modules {
+        alias /var/www/web-vocabulary/static/node_modules;
+    }
+
+    location /static {
+        alias /var/www/web-vocabulary/static;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:8854/;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+    }
+}

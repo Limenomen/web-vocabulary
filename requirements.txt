@@ -3,6 +3,8 @@ django-bootstrap-v5
 django-filter==22.1
 psycopg2-binary==2.9.5
 
+ansible==7.1.0
+
 ipython==8.7.0
 
 Pillow==9.3.0
