@@ -80,8 +80,8 @@ if os.getenv('DB_PASS'):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'USER': os.getenv('DB_USER', 'project'),
-            'NAME': os.getenv('DB_NAME', 'project'),
+            'USER': os.getenv('DB_USER', 'web-vocabulary'),
+            'NAME': os.getenv('DB_NAME', 'web-vocabulary'),
             'PASSWORD': os.getenv('DB_PASS'),
             'HOST': 'db',
             'PORT': 5432
