@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -61,3 +62,16 @@ class ArticleUpdate(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('core:article-detail', kwargs={'pk': self.object.pk})
+
+
+class Login(LoginView):
+    template_name = 'core/login.html'
+
+    def get_success_url(self):
+        return reverse('core:index')
+
+
+class Logout(LogoutView):
+    def get_success_url(self):
+        return reverse('core:index')
+

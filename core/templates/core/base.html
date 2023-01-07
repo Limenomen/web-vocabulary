@@ -27,6 +27,11 @@
                 {% endif %}
             </ul>
         </div>
+        {% if user.is_authenticated %}
+            Добро пожаловать, {{ user }} | <a class="nav-link" href="{% url 'core:logout' %}">Выход</a>
+        {% else %}
+            <a class="nav-link" href="{% url 'core:login' %}">Войти</a>
+        {% endif %}
     </div>
 </nav>
 {% block content %}
