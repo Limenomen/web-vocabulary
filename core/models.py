@@ -7,7 +7,7 @@ User = get_user_model()
 class Article(models.Model):
     name = models.CharField('Название', max_length=255)
     text = models.TextField('Содержание', blank=True)
-    tag = models.ManyToManyField('core.Tag', verbose_name='Связанные теги', blank=True)
+    tag = models.ManyToManyField('core.Tag', verbose_name='Связанные теги', blank=True, related_name='articles')
     author = models.ForeignKey(User, verbose_name='Автор', blank=True, null=True, on_delete=models.SET_NULL)
 
     class Meta:
