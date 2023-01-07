@@ -1,9 +1,22 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from core import models, forms, filters
+
+
+
+class Login(LoginView):
+    template_name = 'core/login.html'
+
+    def get_success_url(self):
+        return reverse('core:index')
+
+
+class Logout(LogoutView):
+    def get_success_url(self):
+        return reverse('core:index')
 
 
 class IndexView(TemplateView):
@@ -64,14 +77,8 @@ class ArticleUpdate(LoginRequiredMixin, UpdateView):
         return reverse('core:article-detail', kwargs={'pk': self.object.pk})
 
 
-class Login(LoginView):
-    template_name = 'core/login.html'
+class ArticleDelete(LoginRequiredMixin, DeleteView):
+    model = models.Article
 
     def get_success_url(self):
-        return reverse('core:index')
-
-
-class Logout(LogoutView):
-    def get_success_url(self):
-        return reverse('core:index')
-
+        return reverse('core:article-list')

@@ -34,6 +34,9 @@
                         <div class="col-md-2">
                             <a href="{% url 'core:article-update' article.pk%}"> <i class="bi bi-pencil-square"></i>Изменить</a>
                         </div>
+                        <div class="col-md-2">
+                            <a href="{% url 'core:article-delete' article.pk%}"> <i class="bi-trash"></i>Удалить</a>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
