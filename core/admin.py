@@ -12,3 +12,9 @@ class Article(admin.ModelAdmin):
 class Article(admin.ModelAdmin):
     list_display = ('name', )
     search_fields = ('name', )
+
+
+@admin.register(models.Media)
+class Article(admin.ModelAdmin):
+    list_display = ('name', )
+    search_fields = ('name', )
