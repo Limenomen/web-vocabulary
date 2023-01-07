@@ -9,6 +9,7 @@ class Article(models.Model):
     text = models.TextField('Содержание', blank=True)
     tag = models.ManyToManyField('core.Tag', verbose_name='Связанные теги', blank=True, related_name='articles')
     author = models.ForeignKey(User, verbose_name='Автор', blank=True, null=True, on_delete=models.SET_NULL)
+    media = models.FileField('Файл', blank=True, null=True, upload_to='media')
 
     class Meta:
         verbose_name = 'Статья'
@@ -16,19 +17,6 @@ class Article(models.Model):
 
     def __str__(self):
         return f'{self.name} ({self.pk})'
-
-
-class Media(models.Model):
-    name = models.CharField('Название', max_length=255)
-    article = models.ForeignKey('core.Article', verbose_name='Статья', on_delete=models.CASCADE, related_name='media')
-    file = models.FileField('Файл', blank=True, null=True, upload_to='media')
-
-    class Meta:
-        verbose_name = 'Медиа'
-        verbose_name_plural = 'Медиа'
-
-    def __str__(self):
-        return f'{self.article.name} - {self.pk}'
 
 
 class Tag(models.Model):
