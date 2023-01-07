@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <title>{{ title }}</title>
 </head>
@@ -19,6 +20,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'core:article-list' %}">Словарь</a>
                 </li>
+                {% if user.is_stuff or user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'core:article-create' %}">Добавить термин</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
