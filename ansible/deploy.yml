@@ -60,6 +60,7 @@
         - 127.0.0.1:8854:80
       volumes:
         - "/var/www/web-vocabulary/static:/static"
+        - "/var/www/test_project/media:/media"
       env:
         DB_PASS: "{{ DB_PASS }}"
 
