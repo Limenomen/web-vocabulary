@@ -16,3 +16,10 @@ class Article(forms.ModelForm):
 
 class ArticleCreate(Article):
     media = forms.ImageField(label='Изображение', required=False)
+
+
+class MediaCreate(forms.ModelForm):
+
+    class Meta:
+        model = models.Media
+        exclude = ['article']
