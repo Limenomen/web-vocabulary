@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'project.wsgi.application'
 if os.getenv('DB_PASS'):
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'USER': os.getenv('DB_USER', 'web-vocabulary'),
-            'NAME': os.getenv('DB_NAME', 'web-vocabulary'),
+            'ENGINE': 'django.db.backends.postgresql',
+            'USER': 'web-vocabulary',
+            'NAME': 'web-vocabulary',
             'PASSWORD': os.getenv('DB_PASS'),
             'HOST': 'db',
             'PORT': 5432
