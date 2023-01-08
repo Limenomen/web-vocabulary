@@ -44,8 +44,8 @@
       state: started
       env:
         POSTGRES_PASSWORD: "{{ DB_PASS }}"
-        POSTGRES_USER: web_vocabulary
-        POSTGRES_NAME: web_vocabulary
+        POSTGRES_USER: web-vocabulary
+        POSTGRES_NAME: web-vocabulary
 
 
   - name: Start container
