@@ -27,7 +27,7 @@ class ArticleDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         article: models.Article = self.get_object()
-        context['tags'] = article.tag.all()
+        context['tags'] = article.tag.order_by('-id')
         return context
 
 
