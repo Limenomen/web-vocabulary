@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -64,3 +65,15 @@ class ArticleDelete(LoginRequiredMixin, DeleteView):
 
     def get_success_url(self):
         return reverse('core:article-list')
+
+
+class ArticleMediaUpdate(LoginRequiredMixin, UpdateView):
+    model = models.Article
+    form_class = forms.MediaCreate
+
+    def form_valid(self, form):
+        models.Media.objects.create(article=self.get_object(), **form.cleaned_data)
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self):
+        return reverse('core:article-detail', kwargs={'pk': self.object.pk})
