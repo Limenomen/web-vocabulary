@@ -67,12 +67,26 @@ class ArticleDelete(LoginRequiredMixin, DeleteView):
         return reverse('core:article-list')
 
 
-class ArticleMediaUpdate(LoginRequiredMixin, UpdateView):
+class ArticleMediaAdd(LoginRequiredMixin, UpdateView):
     model = models.Article
     form_class = forms.MediaCreate
 
     def form_valid(self, form):
         models.Media.objects.create(article=self.get_object(), **form.cleaned_data)
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self):
+        return reverse('core:article-detail', kwargs={'pk': self.object.pk})
+
+
+class ArticleTagAdd(LoginRequiredMixin, UpdateView):
+    model = models.Article
+    form_class = forms.TagCreate
+
+    def form_valid(self, form):
+        tag = models.Tag.objects.create(**form.cleaned_data)
+        article = self.get_object()
+        article.tag.add(tag)
         return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):

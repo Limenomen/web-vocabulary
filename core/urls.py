@@ -12,5 +12,6 @@ urlpatterns = [
     path('articles/create/', views.article.ArticleCreate.as_view(), name='article-create'),
     path('articles/update/<int:pk>/', views.article.ArticleUpdate.as_view(), name='article-update'),
     path('articles/delete/<int:pk>/', views.article.ArticleDelete.as_view(), name='article-delete'),
-    path('articles/<int:pk>/update_media/', views.article.ArticleMediaUpdate.as_view(), name='article-media-update'),
+    path('articles/<int:pk>/add_media/', views.article.ArticleMediaAdd.as_view(), name='article-media-add'),
+    path('articles/<int:pk>/add_tag/', views.article.ArticleTagAdd.as_view(), name='article-tag-add'),
 ]
