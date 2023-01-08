@@ -23,3 +23,10 @@ class MediaCreate(forms.ModelForm):
     class Meta:
         model = models.Media
         exclude = ['article']
+
+
+class TagCreate(forms.ModelForm):
+
+    class Meta:
+        model = models.Tag
+        fields = '__all__'
