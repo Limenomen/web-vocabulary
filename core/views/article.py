@@ -7,13 +7,13 @@ from core import models, forms, filters
 
 
 class ArticleList(ListView):
-    queryset = models.Article.objects.order_by('name')
+    queryset = models.Article.objects.all()
 
     def get_filters(self):
         return filters.ArticleFilter(self.request.GET)
 
     def get_queryset(self):
-        return self.get_filters().qs
+        return self.get_filters().qs.order_by('-id')
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
