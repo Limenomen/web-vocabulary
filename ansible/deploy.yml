@@ -61,7 +61,7 @@
       volumes:
         - "/var/www/web-vocabulary/static:/static"
       env:
-        DB_PASS: "{{ POSTGRES_PASSWORD }}"
+        DB_PASS: "{{ DB_PASS }}"
 
   - name: Install npm
     shell: docker exec -i web-vocabulary bash -c "npm install"
